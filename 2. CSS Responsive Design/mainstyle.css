@@ -12,6 +12,27 @@ p {
     padding: 0;
     ;
 }
+header {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    align-items: baseline;
+    
+}
+h1{
+    margin-left: 15px;
+    font-weight: bold;
+    font-size: 200%;
+}
+main {
+    display: flex;
+    flex-direction: row;
+    
+}
+footer{
+    display: flex;
+    flex-direction: column;
+}
 
 
 *, *:before, *:after {
