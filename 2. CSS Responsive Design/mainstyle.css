@@ -46,6 +46,9 @@ header > nav {
 header > nav > a {
     width: 75px;
 }
+.hamburger {
+  display: none;  
+}
 main {
     display: flex;
     flex-direction: row;
@@ -98,8 +101,23 @@ footer{
 footer > strong {
     font-weight: bold;
 }
+
 @media all and (max-width: 900px) {
     main {
         flex-wrap: wrap;
     }
+    header > h1{
+        display: none;
+    }
+    header >nav {
+        display: none;
+    }
+    header{
+        display: flex;
+        justify-content: space-between;
+    }
+    .hamburger{
+        display: block;
+    }
+
 }
