@@ -62,9 +62,24 @@ main > article > header {
     border-left-width: 2px;
     border-bottom-width: 2px;
 }
+main > article > p {
+    text-align: justify;
+    padding: 15px;
+    
+}
 footer{
     display: flex;
     flex-direction: column;
+    height: 100px;
+    background-color: lightgray;
+    border-top: solid 2px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer > strong {
+    font-weight: bold;
 }
 
 
