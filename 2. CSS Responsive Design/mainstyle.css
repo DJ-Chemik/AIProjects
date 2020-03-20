@@ -10,7 +10,7 @@ body {
 p {
     margin: 0;
     padding: 0;
-    ;
+    
 }
 header {
     display: flex;
@@ -37,7 +37,15 @@ header > nav > a {
 main {
     display: flex;
     flex-direction: row;
-    
+    padding: 15px;
+}
+main > article {
+    margin: 15px;
+    width: 100%;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    border-
 }
 footer{
     display: flex;
