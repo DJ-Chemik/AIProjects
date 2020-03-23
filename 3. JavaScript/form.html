@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <title>JavaScript</title>
+        <script src="form_check.js"></script>
     </head>
     <body>
         <form name="dane_osobowe">
@@ -47,7 +48,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><input type="submit" value="Prześlij"></td>
+                <td colspan="2"><input type="submit" value="Prześlij" onclick="validate(this.form);"></td>
             </tr>
         </table>
         </form>
