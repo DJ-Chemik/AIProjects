@@ -4,15 +4,16 @@
         <meta charset="utf-8" />
         <title>JavaScript</title>
         <script src="form_check.js"></script>
+        <link href="style.css" rel="stylesheet">
     </head>
     <body>
         <form name="dane_osobowe">
         <table>
             <tr>
-                <td>Imię</td><td><input type="text" name="f_imie"></td>
+                <td>Imię</td><td><input type="text" name="f_imie" ><span class="err" id="e_imie"></td>              
             </tr>
             <tr>
-                <td>Nazwisko</td><td><input type="text" name="f_nazwisko"></td>
+                <td>Nazwisko</td><td><input type="text" name="f_nazwisko"><span class="err" id="e_nazwisko"></td>
             </tr>
             <tr>
                 <td>Płeć</td>
@@ -27,19 +28,19 @@
             </tr>
             <tr>
                 <td>E-mail</td>
-                <td><input type="text" name="f_email"></td>
+                <td><input type="text" name="f_email"><span class="err" id="e_email"></td>
             </tr>
             <tr>
                 <td>Kod pocztowy</td>
-                <td><input type="text" name="f_kod"></td>
+                <td><input type="text" name="f_kod"><span class="err" id="e_kod"></td>
             </tr>
             <tr>
                 <td>Ulica/Osiedle</td>
-                <td><input type="text" name="f_ulica"></td>
+                <td><input type="text" name="f_ulica"><span class="err" id="e_ulica"></td>
             </tr>
             <tr>
                 <td>Miasto</td>
-                <td><input type="text" name="f_miasto"></td>
+                <td><input type="text" name="f_miasto"><span class="err" id="e_miasto"></td>
             </tr>
             <tr>
                 <td>Uwagi</td>
@@ -48,7 +49,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><input type="submit" value="Prześlij" onclick=" return validate(this.form)"></td>
+                <td colspan="2"><input type="submit" value="Prześlij" onclick="return validate(this.form)"></td>
             </tr>
         </table>
         </form>
