@@ -18,7 +18,20 @@ function validate(form){
         result=false;
     }
     return result;
-    
+}
+
+function hide(){
+    alert("H1");
+    hideElement("NazwiskoPanienskie");
+    alert("H2");
+}
+
+function showElement(e) {
+    document.getElementById(e).style.visibility = 'visible';
+}
+
+function hideElement(e) {
+    document.getElementById(e).style.visibility = 'hidden';
 
 }
 
