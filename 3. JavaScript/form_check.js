@@ -6,49 +6,29 @@ function validate(form){
     let town = form.elements["f_miasto"];
     let mail = form.elements["f_email"];
     const fields = [name, surname, zipCode, street, town];
-    // checkString(name.value, "Podaj imie!");
-    // checkString(surname.value, "Podaj nazwisko!");
-    // checkEmail(mail.value);
-    // checkString(zipCode.value, "Podaj kod pocztowy!");
-    // checkString(street.value, "Podaj ulice!");
-    // checkString(town.value, "Podaj miasto!");
     let result = true;
-    if (checkEmailAndFocus(mail, "Błędny e-mail!")==false){
-        result=false;
-    }
+    
+    
     for (let i=0; i<fields.length; i++){
-       if (checkStringAndFocus(fields[i], "Błąd")==false){
+       if (checkStringAndFocus(fields[i], "Błąd", isWhiteSpaceOrEmpty)==false){
            result=false;
        }
+    }
+    if (checkStringAndFocus(mail, "Błędny e-mail!", isEmailInvalid)==false){
+        result=false;
     }
     return result;
     
 
 }
 
-function checkStringAndFocus(obj, msg) {
+function checkStringAndFocus(obj, msg, validateFunction){
     let str = obj.value;
     let errorFieldName = "e_" + obj.name.substr(2, obj.name.length);
-    if (isWhiteSpaceOrEmpty(str)) {
+    if (validateFunction(str)) {
         document.getElementById(errorFieldName).innerHTML = msg;
-        //document.getElementById(errorFieldName).focus();
         document.getElementById(errorFieldName).style.visibility="visible";
         obj.focus();
-        return false;
-    }
-    else {
-        document.getElementById(errorFieldName).style.visibility="hidden";
-        return true;
-    }
-}
-
-function checkEmailAndFocus(obj, msg) {
-    let str = obj.value;
-    let errorFieldName = "e_" + obj.name.substr(2, obj.name.length);
-    if (!checkEmail(str)) {
-        document.getElementById(errorFieldName).innerHTML = msg;
-        obj.focus();
-        document.getElementById(errorFieldName).style.visibility="visible";
         return false;
     }
     else {
@@ -58,23 +38,11 @@ function checkEmailAndFocus(obj, msg) {
 }
    
 
-function checkEmail(str) {
+function isEmailInvalid(str) {
     let email = /^[a-zA-Z_0-9\.]+@[a-zA-Z_0-9\.]+\.[a-zA-Z][a-zA-Z]+$/;
-    if (email.test(str))
-        return true;
-    else {
-        //alert("Podaj właściwy e-mail");
+    if (email.test(str)){
         return false;
-    }
-}
-
-function checkString(text, message){
-    let condition1 = isEmpty(text);
-    let condition2 = isWhiteSpaceOrEmpty(text);
-    if (condition1 || condition2){
-        alert(message);
-        return false;
-    }else{
+    }else {
         return true;
     }
 }
@@ -83,10 +51,3 @@ function isWhiteSpaceOrEmpty(text){
     return /^[\s\t\r\n]*$/.test(text);
 }
 
-function isEmpty(text){
-    if (text.length==0){
-        return true;
-    }else{
-        return false;
-    }
-}
