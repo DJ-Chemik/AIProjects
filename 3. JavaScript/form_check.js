@@ -20,12 +20,6 @@ function validate(form){
     return result;
 }
 
-function hide(){
-    alert("H1");
-    hideElement("NazwiskoPanienskie");
-    alert("H2");
-}
-
 function showElement(e) {
     document.getElementById(e).style.visibility = 'visible';
 }
@@ -64,3 +58,15 @@ function isWhiteSpaceOrEmpty(text){
     return /^[\s\t\r\n]*$/.test(text);
 }
 
+function alterRows(i, e) {
+    if (e) {
+        if (i % 2 == 1) {
+            e.setAttribute("style", "background-color: Aqua;");
+        }
+        e = e.nextSibling;
+        while (e && e.nodeType != 1) {
+            e = e.nextSibling;
+        }
+        alterRows(++i, e);
+    }
+}
