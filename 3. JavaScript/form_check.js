@@ -21,7 +21,7 @@ function validate(form){
            result=false;
        }
     }
-    return false;
+    return result;
     
 
 }
@@ -31,11 +31,13 @@ function checkStringAndFocus(obj, msg) {
     let errorFieldName = "e_" + obj.name.substr(2, obj.name.length);
     if (isWhiteSpaceOrEmpty(str)) {
         document.getElementById(errorFieldName).innerHTML = msg;
-        document.getElementById(errorFieldName).focus();
-        //obj.focus();
+        //document.getElementById(errorFieldName).focus();
+        document.getElementById(errorFieldName).style.visibility="visible";
+        obj.focus();
         return false;
     }
     else {
+        document.getElementById(errorFieldName).style.visibility="hidden";
         return true;
     }
 }
@@ -46,9 +48,11 @@ function checkEmailAndFocus(obj, msg) {
     if (!checkEmail(str)) {
         document.getElementById(errorFieldName).innerHTML = msg;
         obj.focus();
+        document.getElementById(errorFieldName).style.visibility="visible";
         return false;
     }
     else {
+        document.getElementById(errorFieldName).style.visibility="hidden";
         return true;
     }
 }
