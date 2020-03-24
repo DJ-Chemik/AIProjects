@@ -5,19 +5,23 @@ function validate(form){
     let street = form.elements["f_ulica"];
     let town = form.elements["f_miasto"];
     let mail = form.elements["f_email"];
-    const texts = [name, surname, zipCode, street, town];
+    const fields = [name, surname, zipCode, street, town];
     // checkString(name.value, "Podaj imie!");
     // checkString(surname.value, "Podaj nazwisko!");
     // checkEmail(mail.value);
     // checkString(zipCode.value, "Podaj kod pocztowy!");
     // checkString(street.value, "Podaj ulice!");
-    // checkString(town.value, "Podaj miasto!"); 
-    checkStringAndFocus(name, "Błąd!");
-    checkStringAndFocus(surname, "Błąd!");
-    checkStringAndFocus(zipCode, "Błąd!");
-    checkStringAndFocus(street, "Błąd!");
-    checkStringAndFocus(town, "Błąd!");
-    checkEmailAndFocus(mail, "Błędny e-mail!")
+    // checkString(town.value, "Podaj miasto!");
+    let result = true;
+    if (checkEmailAndFocus(mail, "Błędny e-mail!")==false){
+        result=false;
+    }
+    for (let i=0; i<fields.length; i++){
+       if (checkStringAndFocus(fields[i], "Błąd")==false){
+           result=false;
+       }
+    }
+    return false;
     
 
 }
