@@ -35,7 +35,7 @@ function checkStringAndFocus(obj, msg, validateFunction){
     if (validateFunction(str)) {
         document.getElementById(errorFieldName).innerHTML = msg;
         document.getElementById(errorFieldName).style.visibility="visible";
-        obj.focus();
+        //obj.focus();
         return false;
     }
     else {
