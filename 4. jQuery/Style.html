@@ -27,6 +27,19 @@
             $(function () {
                 $('tr:even').addClass('zielona');
             });
+
+            $(function () { //Point 12 - is it ok? I don't know
+                $('ol[class=a]>il>*[class=b]:not(:contains(\'link\'))').addClass('zielona')
+            });
+            
+            //Point 12 - additional (but probably not working) solution
+            // $(function () { //Point 12 - is it ok? I don't know
+            //     $('ol[class=a]').filter(function () { //ol - ordered (numbered) list
+            //         $('il').filter(function (){
+            //             $('*[class=b]:not(:contains(\'link\'))').addClass('zielona');
+            //         });
+            //     });
+            // });
         </script>
     </head>
     <body>
