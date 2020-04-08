@@ -7,9 +7,10 @@
             src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
         </script>
         <script type="text/javascript">
-            // $(document).ready(function () {
+            $(document).ready(function () {
             //     alert('Czy wiesz, że możesz skopiować ten tekst przy pomocy skrótu Ctrl + C.');
-            // });
+                $('button').bind('asdf', function () { alert('Asdf!'); });
+            });
             function edit() {
                 const row = $(this);
                 row.html('<input id="edit" value="' + row.text() + '">');
@@ -17,6 +18,8 @@
                     row.text($(this).val());
                     row.one('click', edit);
                 }).focus();
+                $('button').trigger('asdf');
+                // $('*').unbind();
             }
 
             $(function () {
@@ -35,5 +38,6 @@
             <tr><td>na</td></tr>
             <tr><td>...</td></tr>
         </table>
+        <button>ASDF Method</button>
     </body>
 </html>
