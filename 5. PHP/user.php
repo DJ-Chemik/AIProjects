@@ -14,6 +14,9 @@
             echo "Zalogowano";
             
         ?>
+        <br>
+        Imie i nazwisko użytkownika: <?php echo $_SESSION['zalogowanyImie'] ?>
+        <br>
         <a href="index.php">Przejdź do index.php</a>
     </body>
 </html>
