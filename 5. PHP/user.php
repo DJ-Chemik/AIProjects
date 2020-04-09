@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,5 +6,10 @@
         <meta charset='UTF-8' />
     </head>
     <body>
+        <?php
+            require_once("funkcje.php");
+            echo "Zalogowano";
+            
+        ?>
     </body>
 </html>

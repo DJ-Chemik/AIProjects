@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,5 +6,9 @@
         <meta charset='UTF-8' />
     </head>
     <body>
+        <?php
+            require("funkcje.php");
+            
+        ?>
     </body>
 </html>
