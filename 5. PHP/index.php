@@ -12,6 +12,7 @@
             Hasło: <input type='password' name='password'><br>
             <input type='submit' name='zaloguj' value='zaloguj'>
         </form>
+        <a href="user.php">Przejdź do user.php</a>
         
     </body>
 </html>
