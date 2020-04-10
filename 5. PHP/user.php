@@ -35,6 +35,8 @@
             if(isSet($_POST["upload"])){
                 $currentDir = getcwd();
                 $uploadDir = "/";
+                // $uploadDir = "\\fotki\\"; //NIE DZIAŁA.... :(
+                // $uploadDir = "/fotki/"; //NIE DZIAŁA.... :(
                 $fileName = $_FILES['myfile']['name'];
                 $fileSize = $_FILES['myfile']['size'];
                 $fileTmpName = $_FILES['myfile']['tmp_name'];
@@ -44,14 +46,16 @@
                     $fileType == 'image/PNG' || $fileType == 'image/JPEG')
                 ){
                     $uploadPath = $currentDir . $uploadDir . $fileName;
-                    echo "<br>".$currentDir;
-                    echo "<br>".$uploadDir;
-                    echo "<br>".$fileName;
-                    echo "<br>".$fileTmpName;
-                    echo "<br>".$uploadPath."<br>";
+                    // echo "<br>".$currentDir;
+                    // echo "<br>".$uploadDir;
+                    // echo "<br>".$fileName;
+                    // echo "<br>".$fileTmpName;
+                    // echo "<br>".$uploadPath."<br>";
                     if(move_uploaded_file($fileTmpName, $uploadPath)){
                         echo "<br>Załadowano zdjęcie na serwer FTP<br><br>";
                         echo "<img src='fotka.png' alt='Niespodziankowa fotka'>";
+                        // echo "<img src='\\fotki\\fotka.png' alt='Niespodziankowa fotka'>"; //NIE DZIAŁA.... :(
+                        // echo "<img src='/fotki/fotka.png' alt='Niespodziankowa fotka'>"; //NIE DZIAŁA.... :(
                     }else{
                         echo "<br>Nie udało się załadować pliku<br><br>";
                     }
@@ -59,8 +63,6 @@
                 }
             }
             
-        ?>
-        <!-- <img src='fotka.png' alt='Niespodziankowa fotka'> -->
-        
+        ?>        
     </body>
 </html>
