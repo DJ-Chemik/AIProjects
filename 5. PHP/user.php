@@ -21,8 +21,9 @@
         <form action="index.php" method="post">
             <input type='submit' name='wyloguj' value='wyloguj'>
         </form>
-        <form action='user.php' method='POST' enctype='multipart/form-data'>
-            <input name="myfile" type="file" name="upload">
+        <form action='user.php' method='post' enctype='multipart/form-data'>
+            <input type="file" name="myfile"/>
+            <input type="submit" name="upload" value="Prześlij plik" />
         </form>
         <?php
             if(isSet($_POST["upload"])){
@@ -37,12 +38,23 @@
                     $fileType == 'image/PNG' || $fileType == 'image/JPEG')
                 ){
                     $uploadPath = $currentDir . $uploadDir . $fileName;
+                    echo "<br>".$currentDir;
+                    echo "<br>".$uploadDir;
+                    echo "<br>".$fileName;
+                    echo "<br>".$fileTmpName;
+                    echo "<br>".$uploadPath."<br>";
                     if(move_uploaded_file($fileTmpName, $uploadPath)){
-                        echo "Trwa ładowanie zdjęcia na serwer FTP";
+                        echo "<br>Załadowano zdjęcie na serwer FTP<br><br>";
+                        echo "<img src='fotka.png' alt='Niespodziankowa fotka'>";
+                    }else{
+                        echo "<br>Nie udało się załadować pliku<br><br>";
                     }
+                    
                 }
             }
+            
         ?>
-        <img src="fotka.png" alt="Niespodziankowa fotka">
+        <!-- <img src='fotka.png' alt='Niespodziankowa fotka'> -->
+        
     </body>
 </html>

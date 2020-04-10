@@ -19,6 +19,15 @@
             <input type='submit' name='zaloguj' value='zaloguj'>
         </form>
         <a href="user.php">Przejdź do user.php</a>
-        
+        <form action="cookie.php" method="get">
+            <input type='number' name='czas'>
+            <input type='submit' name='utworzCookie' value='utworzCookie'>
+        </form>
+        <br>
+        <?php
+            if(isSet($_COOKIE['FirstCookie'])){
+                echo $_COOKIE['FirstCookie'];
+            }
+        ?>
     </body>
 </html>
