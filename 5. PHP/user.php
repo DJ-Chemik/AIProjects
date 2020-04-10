@@ -17,14 +17,20 @@
         <br>
         Imie i nazwisko użytkownika: <?php echo $_SESSION['zalogowanyImie'] ?>
         <br>
-        <a href="index.php">Przejdź do index.php</a>
         <form action="index.php" method="post">
-            <input type='submit' name='wyloguj' value='wyloguj'>
+            <fieldset>
+                <legend>Panel wylogowywania:</legend>
+                <input type='submit' name='wyloguj' value='Wyloguj się'>
+            </fieldset>
         </form>
         <form action='user.php' method='post' enctype='multipart/form-data'>
-            <input type="file" name="myfile"/>
-            <input type="submit" name="upload" value="Prześlij plik" />
+            <fieldset>
+                <legend>Panel dodawania pliku:</legend>
+                <input type="file" name="myfile"/>
+                <input type="submit" name="upload" value="Prześlij plik" />
+            </fieldset>
         </form>
+        <a href="index.php">Przejdź do index.php</a>
         <?php
             if(isSet($_POST["upload"])){
                 $currentDir = getcwd();

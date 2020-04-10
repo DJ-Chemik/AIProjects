@@ -14,16 +14,23 @@
             }
         ?>
         <form action="logowanie.php" method="post">
-            Login: <input type='text' name='login'> <br>
-            Hasło: <input type='password' name='password'><br>
-            <input type='submit' name='zaloguj' value='zaloguj'>
+            <fieldset>
+                <legend>Panel logowania:</legend>
+                Login: <input type='text' name='login'> <br>
+                Hasło: <input type='password' name='password'><br>
+                <input type='submit' name='zaloguj' value='Zaloguj'>
+            </fieldset>
         </form>
-        <a href="user.php">Przejdź do user.php</a>
         <form action="cookie.php" method="get">
-            <input type='number' name='czas'>
-            <input type='submit' name='utworzCookie' value='utworzCookie'>
+            <fieldset>
+                <legend>Ustaw wartość zmiennej cookie:</legend>
+                <label for="czas">Wartość zmiennej cookie:</label>
+                <input type='number' name='czas'>
+                <input type='submit' name='utworzCookie' value='Utwórz cookie'>
+            </fieldset>
         </form>
         <br>
+        <a href="user.php">Przejdź do user.php</a>
         <?php
             if(isSet($_COOKIE['FirstCookie'])){
                 echo $_COOKIE['FirstCookie'];
