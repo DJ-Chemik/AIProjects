@@ -4,8 +4,8 @@
         printf("Connect failed: %s\n", mysqli_connect_error());
         exit();
     }
-    $result = mysqli_query($link,"SELECT * FROM zespoly");
 
+    $result = mysqli_query($link,"SELECT * FROM zespoly");
     if (!$result) {
         printf("Query failed: %s\n", mysqli_error($link));
     }
@@ -24,7 +24,7 @@
 
     printf("</table>");
     printf("<i>query returned %d rows </i>", mysqli_num_rows($result));
-    
+
     mysqli_free_result($result);
     mysqli_close($link);
 ?>

@@ -5,22 +5,21 @@
         exit();
     }
 
-    $result = mysqli_query($link,"SELECT * FROM etaty ORDER BY placa_od");
+    $result = mysqli_query($link,"SELECT * FROM pracownicy");
     if (!$result) {
         printf("Query failed: %s\n", mysqli_error($link));
     }
 
-    printf("<h1>ETATY</h1>");
+    printf("<h1>PRACOWNICY</h1>");
     printf("<table border=\"1\">");
-    printf("<tr><th>NAZWA</th><th>PLACA_OD</th><th>PLACA_DO</th></tr>");
+    printf("<tr><th>ID_PRAC</th><th>NAZWISKO</th><th>ETAT</th><th>ZATR.</th></tr>");
 
-    while ($row = mysqli_fetch_assoc($result))
-        printf("<tr><td>%s</td><td>%6.2f</td><td>%6.2f</td></tr>",
-            $row["NAZWA"],$row["PLACA_OD"],$row["PLACA_DO"]);   
+    while ($obj = mysqli_fetch_object($result))
+        printf("<tr><td>%d</td><td>%s</td><td>%s</td><td>%s</td></tr>",
+            $obj->ID_PRAC, $obj->NAZWISKO, $obj->ETAT, $obj->ZATRUDNIONY);
 
     printf("</table>");
     printf("<i>query returned %d rows </i>", mysqli_num_rows($result));
-
     mysqli_free_result($result);
     mysqli_close($link);
 ?>
