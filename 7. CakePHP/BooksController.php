@@ -21,5 +21,24 @@
                 }
             }
         }
+
+        function delete($id) {
+            if ($this->Book->delete($id)) {
+                $this->Flash->set('Książka została usunięta');
+                $this->redirect(array('action' => 'index'));
+            }
+        }
+
+        function edit($id = null) {
+            $this->Book->id = $id;
+            if (empty($this->data)) {
+                $this->data = $this->Book->read();
+            } else {
+                if ($this->Book->save($this->data)) {
+                    $this->Flash->set('Książka została zmieniona');
+                    $this->redirect(array('action' => 'index'));
+                }
+            }
+        }
     }
 ?>
