@@ -1,4 +1,9 @@
 <h1>Books</h1>
+<p>
+    <?php 
+        echo $this->Html->link('Dodaj', array('action' => 'add')); 
+    ?>
+</p>
 <table>
     <tr>
         <th>Id</th>
