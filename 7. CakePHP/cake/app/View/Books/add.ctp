@@ -5,6 +5,6 @@
     echo $this->Form->input('title');
     echo $this->Form->input('author');
     echo $this->Form->input('genre',
-    array('options'=>$options, 'default'=>'dramat'));
+        array('options'=>$options, 'default'=>'dramat'));
     echo $this->Form->end('Zapisz');
 ?>
