@@ -1,0 +1,25 @@
+﻿@{
+    Layout = null;
+    String name = "Robert Paulson";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+    @{
+        List<String> list = new List<String>();
+        for(int i = 0; i < 10; i++)
+        {
+            list.Add("His name is " + name);
+            <li>@list[i]</li>
+        }
+     } 
+    </div>
+</body>
+</html>
