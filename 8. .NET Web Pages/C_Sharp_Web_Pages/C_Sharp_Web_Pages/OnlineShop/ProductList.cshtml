@@ -1,0 +1,51 @@
+﻿@{
+    var productList = new List<string>();
+    var shoppingList = new List<string>();
+    if (Session["productList"] != null)
+    {
+        productList = (List<string>)Session["productList"];
+    }
+    else if (Session["productList"] == null)
+    {
+        productList.Add("Jabłko");
+        productList.Add("Banan");
+        Session["productList"] = productList;
+    }
+    if (Session["shoppingList"] != null)
+    {
+        shoppingList = (List<string>)Session["shoppingList"];
+    }
+    else if (Session["shoppingList"] == null)
+    {
+        Session["shoppingList"] = shoppingList;
+    }
+    if (!Request["product"].IsEmpty())
+    {
+        if (!shoppingList.Contains(Request["product"]))
+        {
+            shoppingList.Add((string)Request["product"]);
+            Session["shoppingList"] = shoppingList;
+        }
+
+    }
+}
+
+@section Body{
+    <h1>Produkty dostępne w sklepie:</h1>
+    <ul>
+        @{ 
+            foreach (var product in productList)
+            {
+                
+                <form action="ProductList.cshtml" method="post">
+                    <li>
+                        <input type="text" readonly="readonly" value="@product" name="product" />
+                        <input type="submit" value="Dodaj produkt do koszyka" name="AddProduct" />
+                    </li>
+                </form>
+            }
+        }
+    </ul>
+    <a href="~/OnlineShop/ShoppingCart.cshtml">Koszyk</a>
+    
+}

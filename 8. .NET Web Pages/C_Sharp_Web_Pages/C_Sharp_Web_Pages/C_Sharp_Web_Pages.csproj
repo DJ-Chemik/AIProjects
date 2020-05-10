@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Style.css" />
+    <Content Include="OnlineShop\styles\Style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +98,12 @@
   <ItemGroup>
     <Content Include="Name.cshtml" />
     <Content Include="Default.cshtml" />
+    <Content Include="OnlineShop\WelcomePage.cshtml" />
+    <Content Include="OnlineShop\ProductList.cshtml" />
+    <Content Include="OnlineShop\ShoppingCart.cshtml" />
+    <Content Include="OnlineShop\AddNewProduct.cshtml" />
+    <Content Include="OnlineShop\_Layout.cshtml" />
+    <Content Include="OnlineShop\_PageStart.cshtml" />
     <None Include="packages.config" />
     <Content Include="Rules.cshtml" />
     <Content Include="Redirect.cshtml" />
@@ -107,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
+    <Folder Include="OnlineShop\images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

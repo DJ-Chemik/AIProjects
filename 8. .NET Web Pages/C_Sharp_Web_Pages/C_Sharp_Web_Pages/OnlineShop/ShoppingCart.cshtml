@@ -1,0 +1,39 @@
+﻿@{
+    var shoppingList = new List<string>();
+    if (Session["shoppingList"] != null)
+    {
+        shoppingList = (List<string>)Session["shoppingList"];
+    }
+    else if (Session["shoppingList"] == null)
+    {
+        Session["shoppingList"] = shoppingList;
+    }
+    if (!Request["productInCart"].IsEmpty())
+    {
+        if (shoppingList.Contains(Request["productInCart"]))
+        {
+            shoppingList.Remove((string)Request["productInCart"]);
+            Session["shoppingList"] = shoppingList;
+        }
+
+    }
+}
+
+@section Body{
+    <h1>Koszyk twoich zakupów</h1>
+    <ul>
+        @{
+            foreach (var product in shoppingList)
+            {
+                <form action="ShoppingCart.cshtml" method="post">
+                    <li>
+                        <input type="text" readonly="readonly" value="@product" name="productInCart" />
+                        <input type="submit" value="Usuń produkt do koszyka" name="DeleteProduct" />
+                    </li>
+                </form>
+
+            }
+        }
+    </ul>
+    <a href="~/OnlineShop/ProductList.cshtml">Lista produktów</a>
+}
