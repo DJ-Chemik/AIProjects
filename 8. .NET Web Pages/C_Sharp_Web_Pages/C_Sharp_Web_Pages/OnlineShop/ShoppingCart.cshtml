@@ -1,5 +1,14 @@
 ﻿@{
+    var productList = new List<string>();
     var shoppingList = new List<string>();
+    if (Session["productList"] != null)
+    {
+        productList = (List<string>)Session["productList"];
+    }
+    else if (Session["productList"] == null)
+    {
+        Session["productList"] = productList;
+    }
     if (Session["shoppingList"] != null)
     {
         shoppingList = (List<string>)Session["shoppingList"];
@@ -16,6 +25,21 @@
             Session["shoppingList"] = shoppingList;
         }
 
+    }
+    if (Request["Purchase"]!=null)
+    {
+        var toDelete = new List<string>();
+        foreach (var item in shoppingList)
+        {
+            ((List<string>)Session["productList"]).Remove(item);
+            toDelete.Add(item);
+
+        }
+        Session["shoppingList"] = ((List<string>)Session["shoppingList"]).Except(toDelete).ToList();
+        shoppingList = (List<string>)Session["shoppingList"];
+
+        Response.Write("<script>alert('Gratulujemy udanych zakupów :)')</script>");
+       
     }
 }
 
@@ -35,5 +59,8 @@
             }
         }
     </ul>
-    
+    <form action="ShoppingCart.cshtml" method="post">
+        <input type="submit" value="Kup produkty z koszyka" name="Purchase" />
+    </form><br />
+
 }

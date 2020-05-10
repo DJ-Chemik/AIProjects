@@ -5,6 +5,10 @@
 .header {
     background-color: coral
 }
+img.icon{
+    width: 250px;
+    height: 150px;
+}
 
 .body {
     background-color: darkorange
