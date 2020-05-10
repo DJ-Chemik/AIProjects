@@ -28,18 +28,26 @@
     }
     if (Request["Purchase"]!=null)
     {
-        var toDelete = new List<string>();
-        foreach (var item in shoppingList)
+        if (shoppingList.Any())
         {
-            ((List<string>)Session["productList"]).Remove(item);
-            toDelete.Add(item);
+            var toDelete = new List<string>();
+            foreach (var item in shoppingList)
+            {
+                ((List<string>)Session["productList"]).Remove(item);
+                toDelete.Add(item);
 
+            }
+            Session["shoppingList"] = ((List<string>)Session["shoppingList"]).Except(toDelete).ToList();
+            shoppingList = (List<string>)Session["shoppingList"];
+
+            Response.Write("<script>alert('Gratulujemy udanych zakupów :)')</script>");
         }
-        Session["shoppingList"] = ((List<string>)Session["shoppingList"]).Except(toDelete).ToList();
-        shoppingList = (List<string>)Session["shoppingList"];
+        else
+        {
+            Response.Write("<script>alert('Musisz coś mieć w koszyku żeby zrobić zakupy')</script>");
+        }
 
-        Response.Write("<script>alert('Gratulujemy udanych zakupów :)')</script>");
-       
+
     }
 }
 
