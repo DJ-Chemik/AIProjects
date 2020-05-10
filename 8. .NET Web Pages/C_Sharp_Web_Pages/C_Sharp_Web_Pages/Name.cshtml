@@ -1,6 +1,23 @@
 ﻿@{
     Layout = null;
     String name = "Robert Paulson";
+    String method = "(unknown)";
+    /*if (!Request["name"].IsEmpty())
+    {
+        name = Request["name"];
+        method = "GET or POST";
+    }*/
+    if (!Request.QueryString["name"].IsEmpty())
+    {
+        name = Request.QueryString["name"];
+        method = "GET";
+    }
+    if (!Request.Form["name"].IsEmpty())
+    {
+        name = Request.Form["name"];
+        method = "POST";
+    }
+
 }
 
 <!DOCTYPE html>
@@ -12,14 +29,15 @@
 </head>
 <body>
     <div>
-    @{
-        List<String> list = new List<String>();
-        for(int i = 0; i < 10; i++)
-        {
-            list.Add("His name is " + name);
-            <li>@list[i]</li>
+        @{
+            List<String> list = new List<String>();
+            for (int i = 0; i < 10; i++)
+            {
+                list.Add("His name is " + name);
+                <li>@list[i]</li><br>
+            }
+            <div>Method: @method</div>
         }
-     } 
     </div>
 </body>
 </html>

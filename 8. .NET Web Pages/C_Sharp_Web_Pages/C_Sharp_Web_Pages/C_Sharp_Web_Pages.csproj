@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Name.cshtml" />
+    <Content Include="Default.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>
