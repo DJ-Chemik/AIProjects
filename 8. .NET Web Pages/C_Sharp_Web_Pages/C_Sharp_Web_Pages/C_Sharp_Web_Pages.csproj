@@ -103,6 +103,7 @@
     <Content Include="Suits\_Layout.cshtml" />
     <Content Include="Suits\Mark3.cshtml" />
     <Content Include="Suits\Mark6.cshtml" />
+    <Content Include="Suits\_PageStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
