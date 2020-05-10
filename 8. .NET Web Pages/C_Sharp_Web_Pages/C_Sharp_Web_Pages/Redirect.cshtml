@@ -1,0 +1,22 @@
+﻿@{
+    Layout = null;
+    if (!Request["rule"].IsEmpty())
+    {
+        ((List<string>)Session["rules"]).Add(Request["rule"]);
+        Response.Redirect("Rules.cshtml");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+    
+    </div>
+</body>
+</html>

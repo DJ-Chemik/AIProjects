@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+    var rules = new List<string>();
+    if (Session["rules"]!= null)
+    {
+        rules = (List<string>)Session["rules"];
+    }
+    else if (Session["rules"] == null)
+    {
+        Session["rules"] = rules;
+    }
+
+
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <form action="Redirect.cshtml" method="post">
+            New rule: <input type="text" name="rule" />
+            <input type="submit" name="accept" value="Submit"/>
+  
+        </form>
+        
+        <ol type="1">
+            @{
+                foreach (var rule in rules)
+                {
+                    <li>@rule</li>
+                }
+            }
+        </ol>
+        
+    </div>
+</body>
+</html>

@@ -97,6 +97,8 @@
     <Content Include="Name.cshtml" />
     <Content Include="Default.cshtml" />
     <None Include="packages.config" />
+    <Content Include="Rules.cshtml" />
+    <Content Include="Redirect.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
