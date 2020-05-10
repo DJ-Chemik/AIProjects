@@ -1,7 +1,30 @@
 ﻿@{
+    var productList = new List<string>();
+    if (Session["productList"] != null)
+    {
+        productList = (List<string>)Session["productList"];
+    }
+    else if (Session["productList"] == null)
+    {
+        Session["productList"] = productList;
+    }
 
+    if (!Request["newProduct"].IsEmpty())
+    {
+        if (!productList.Contains(Request["newProduct"]))
+        {
+            productList.Add((string)Request["newProduct"]);
+            Session["productList"] = productList;
+        }
+
+    }
 }
 
 @section Body{
-    Dodaj Nowy Produkt
+    <h1>Panel dodawania nowego produktu</h1>
+    <form action="AddNewProduct.cshtml" method="post">
+            <input type="text" name="newProduct" />
+            <input type="submit" value="Dodaj nowy produkt do serwisu" name="AddProductToService" />
+    </form>
+    <br />
 }
