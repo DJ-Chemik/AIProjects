@@ -6,7 +6,7 @@ const ListOfTasks = (props) => {
         props.tasks.map( (task) => {
           return(
             <li key={task.id}>
-              <Task content={task.content}/>
+              <Task content={task.content} isFinished={task.isFinished}/>
             </li>
           )
         })

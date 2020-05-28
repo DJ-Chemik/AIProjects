@@ -12,7 +12,11 @@ class TaskAdder extends Component {
         this.setState({
             latestTaskId: this.state.latestTaskId+1,
         })
-        this.props.onAdd({id:this.state.latestTaskId, content:this.state.actualInputValue});
+        this.props.onAdd({
+            id:this.state.latestTaskId, 
+            content:this.state.actualInputValue,
+            isFinished: false,
+        });
         this.setState({
             actualInputValue: ''
         })        

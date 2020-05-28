@@ -6,13 +6,15 @@ import TaskAdder from './TaskAdder';
 
 class App extends Component{
   state = {
+    hideFinished: false,
+
     tasks: [
-      {id: 0, content: "Zrób obiad"},
-      {id: 1, content: "Umyj gary"}
+      {id: 0, content: "Zrób obiad", isFinished: false},
+      {id: 1, content: "Umyj gary", isFinished: false}
     ]
   }
 
-  addNewtask = (newtask) => {
+  addNewTask = (newtask) => {
     const newTasks = this.state.tasks.slice();
     newTasks.push(newtask);
     this.setState({
@@ -25,7 +27,7 @@ class App extends Component{
       <div className="App">
         <Title title="Welcome to my To Do List!"/>
         <ListOfTasks tasks={this.state.tasks}></ListOfTasks>
-        <TaskAdder onAdd={this.addNewtask} latestTaskId={this.state.tasks.length}/>
+        <TaskAdder onAdd={this.addNewTask} latestTaskId={this.state.tasks.length}/>
       </div>
     );
   }
