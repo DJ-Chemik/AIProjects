@@ -2,16 +2,25 @@ import React, {Component} from 'react';
 
 class Task extends Component{
     state = {
-        isSelected: this.props.isFinished,
-        actualStyle: {fontWeight: "bold"},
+        // isSelected: this.props.isFinished,
+        actualStyle: {},
     }
 
-    handleChange = (e) => {
-        this.props.changeIsFinished();
-        this.setState({
-            isSelected: this.state.isSelected ? false : true,
-        });
-        if (!this.state.isSelected) {
+    componentDidMount(){
+        if (this.props.isFinished){
+            this.setState({
+                actualStyle: {textDecoration: "line-through"},
+            });
+        }else{
+            this.setState({
+                actualStyle: {fontWeight: "bold"},
+            });
+        }
+        
+    }
+    
+    setStyle = () => {
+        if (!this.props.isFinished) {
             this.setState({
                 actualStyle: {textDecoration: "line-through"}
             });
@@ -22,10 +31,18 @@ class Task extends Component{
         }
     }
 
+    handleChange = (e) => {
+        this.props.changeIsFinished();
+        this.setState({
+            isSelected: this.state.isSelected ? false : true,
+        });
+        this.setStyle();
+    }
+
     render(){
         return (
         <div className="Task" style={this.state.actualStyle}>
-            <input type="checkBox" checked={this.state.isSelected} value={this.props.isSelected} onChange={this.handleChange}></input>
+            <input type="checkBox" checked={this.props.isFinished} onChange={this.handleChange}></input>
             {this.props.content}
         </div>
     );

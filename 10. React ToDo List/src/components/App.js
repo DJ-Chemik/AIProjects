@@ -9,7 +9,7 @@ class App extends Component{
     hideFinished: false,
 
     tasks: [
-      {id: 0, content: "Zrób obiad", isFinished: true},
+      {id: 0, content: "Zrób obiad", isFinished: false},
       {id: 1, content: "Umyj gary", isFinished: false}
     ]
   }
@@ -23,11 +23,9 @@ class App extends Component{
   }
 
   changeHidingFinishedTasks = () => {
-    console.log(this.state.hideFinished);
     this.setState({
       hideFinished: !this.state.hideFinished,
     });
-    console.log(this.state.hideFinished);
   }
 
   changeIsTaskFinished = (id) => {
