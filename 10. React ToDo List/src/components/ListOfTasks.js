@@ -4,16 +4,18 @@ import Task from './Task';
 const ListOfTasks = (props) => {
     const taskList = props.tasks.length ? (
         props.tasks.map( (task) => {
+          const changeFinishedTask = () => {
+            props.changeIsTaskFinished(task.id);
+          }
           if(props.hideFinished && task.isFinished){
-            console.log("if");
             return(null);
           }else{
-            console.log("else");
             return(
                 <li key={task.id}>
                   <Task 
                   content={task.content} 
-                  isFinished={task.isFinished}>
+                  isFinished={task.isFinished}
+                  changeIsFinished={changeFinishedTask}>
                   </Task>
                 </li>
             );

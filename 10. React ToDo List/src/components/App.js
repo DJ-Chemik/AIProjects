@@ -30,7 +30,16 @@ class App extends Component{
     console.log(this.state.hideFinished);
   }
 
-  changeIsTaskFinished = () => {
+  changeIsTaskFinished = (id) => {
+    const newTasks = this.state.tasks.slice();
+    newTasks.map( (task) => {
+      if(task.id===id){
+        task.isFinished = !task.isFinished;
+      }
+    });
+    this.setState({
+      tasks: newTasks,
+    });
 
   }
 

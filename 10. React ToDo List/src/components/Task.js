@@ -7,6 +7,7 @@ class Task extends Component{
     }
 
     handleChange = (e) => {
+        this.props.changeIsFinished();
         this.setState({
             isSelected: this.state.isSelected ? false : true,
         });
