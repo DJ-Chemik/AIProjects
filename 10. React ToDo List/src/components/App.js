@@ -9,7 +9,7 @@ class App extends Component{
     hideFinished: false,
 
     tasks: [
-      {id: 0, content: "Zrób obiad", isFinished: false},
+      {id: 0, content: "Zrób obiad", isFinished: true},
       {id: 1, content: "Umyj gary", isFinished: false}
     ]
   }
@@ -22,11 +22,28 @@ class App extends Component{
     })
   }
 
+  changeHidingFinishedTasks = () => {
+    console.log(this.state.hideFinished);
+    this.setState({
+      hideFinished: !this.state.hideFinished,
+    });
+    console.log(this.state.hideFinished);
+  }
+
+  changeIsTaskFinished = () => {
+
+  }
+
   render(){
     return (
       <div className="App">
         <Title title="Welcome to my To Do List!"/>
-        <ListOfTasks tasks={this.state.tasks}></ListOfTasks>
+        <ListOfTasks 
+          hideFinished={this.state.hideFinished}
+          changeHiding={this.changeHidingFinishedTasks}
+          changeIsTaskFinished={this.changeIsTaskFinished} 
+          tasks={this.state.tasks}>
+        </ListOfTasks>
         <TaskAdder onAdd={this.addNewTask} latestTaskId={this.state.tasks.length}/>
       </div>
     );

@@ -6,8 +6,6 @@ class Task extends Component{
         actualStyle: {fontWeight: "bold"},
     }
 
-    
-
     handleChange = (e) => {
         this.setState({
             isSelected: this.state.isSelected ? false : true,
